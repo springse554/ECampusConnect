@@ -12,6 +12,7 @@ import javax.persistence.Persistence;
 import se.project.ecampusconnect.course.Course;
 import se.project.ecampusconnect.course.InclassCourse;
 import se.project.ecampusconnect.course.OnlineCourse;
+import se.project.ecampusconnect.professor.Instructor;
 
 /**
  *
@@ -46,12 +47,25 @@ public class Main {
         em.persist(onlineCourse);
         tx.commit();
     }
+    
+    public void createInstructor(String name, String department) {
+        Instructor instructor = new Instructor();
+        instructor.setName(name);
+        instructor.setDepartment(department);
+        
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(instructor);
+        tx.commit();
+        
+    }
     public static void main(String[] args) {
         Main main = new Main();
-        emf = Persistence.createEntityManagerFactory("coursePU");
+        emf = Persistence.createEntityManagerFactory("ecampusconnectPU");
         em = emf.createEntityManager();
         main.createInclassCourse("SE554", "Prof. Ken Yu", 4.0, "LEWIS 01510");
         main.createOnlineCourse("SE554", "Prof. Ken Yu", 4.0, "https://d2l.depaul.edu/");
+        main.createInstructor("Prof. Ken Yu", "Software Engineering");
         em.close();
         emf.close();
     }

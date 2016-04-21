@@ -3,30 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.project.ecampusconnect.student;
+package se.project.ecampusconnect.people;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Advait
  */
 @Entity
-public class Student implements Serializable {
+@DiscriminatorValue( value = "advisor" )
+public class Advisor extends Staff{
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private int studentId;
-    private String studentName;
-    private String studentEmail;
-    private String studentLevel;
+    private String services;
+    
+    public Advisor(int staff_id, String staff_name, String services)
+    {
+        super(staff_id, staff_name);
+        this.services = services;
+    }
+    
+    public Advisor()
+    {
+        super();
+    }
+    
+    
     
     public Long getId() {
         return id;
@@ -46,10 +58,10 @@ public class Student implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Student)) {
+        if (!(object instanceof Advisor)) {
             return false;
         }
-        Student other = (Student) object;
+        Advisor other = (Advisor) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -58,39 +70,15 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "se.project.ecampusconnect.student.Student[ id=" + id + " ]";
+        return "se.project.ecampusconnect.people.Advisor[ id=" + id + " ]";
     }
 
-    public int getStudentId() {
-        return studentId;
+    public String getServices() {
+        return services;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getStudentEmail() {
-        return studentEmail;
-    }
-
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
-    }
-
-    public String getStudentLevel() {
-        return studentLevel;
-    }
-
-    public void setStudentLevel(String studentLevel) {
-        this.studentLevel = studentLevel;
+    public void setServices(String services) {
+        this.services = services;
     }
     
 }

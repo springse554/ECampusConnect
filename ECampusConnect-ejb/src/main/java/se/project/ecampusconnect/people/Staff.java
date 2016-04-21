@@ -3,30 +3,48 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.project.ecampusconnect.student;
+package se.project.ecampusconnect.people;
 
 import java.io.Serializable;
+
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  *
  * @author Advait
  */
 @Entity
-public class Student implements Serializable {
+@Table
+@Inheritance( strategy = InheritanceType.SINGLE_TABLE )
+@DiscriminatorColumn( name = "type" )
+public class Staff implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    
     private Long id;
+    
+    private int staff_id;
+    private String staff_name;
+    
+    public Staff(int staff_id, String staff_name)
+    {
+        super();
+        this.staff_id = staff_id;
+        this.staff_name = staff_name;
+    }
 
-    private int studentId;
-    private String studentName;
-    private String studentEmail;
-    private String studentLevel;
+    public Staff( ) 
+    {
+      super( );
+   }
     
     public Long getId() {
         return id;
@@ -46,10 +64,10 @@ public class Student implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Student)) {
+        if (!(object instanceof Staff)) {
             return false;
         }
-        Student other = (Student) object;
+        Staff other = (Staff) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -58,39 +76,23 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "se.project.ecampusconnect.student.Student[ id=" + id + " ]";
+        return "se.project.ecampusconnect.people.Staff[ id=" + id + " ]";
     }
 
-    public int getStudentId() {
-        return studentId;
+    public int getStaff_id() {
+        return staff_id;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setStaff_id(int staff_id) {
+        this.staff_id = staff_id;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public String getStaff_name() {
+        return staff_name;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getStudentEmail() {
-        return studentEmail;
-    }
-
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
-    }
-
-    public String getStudentLevel() {
-        return studentLevel;
-    }
-
-    public void setStudentLevel(String studentLevel) {
-        this.studentLevel = studentLevel;
+    public void setStaff_name(String staff_name) {
+        this.staff_name = staff_name;
     }
     
 }

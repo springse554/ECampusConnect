@@ -112,7 +112,14 @@ public abstract class Course implements Serializable {
     public void setLocation(String location) {
         
     }
+    
+    public String getUrl() {
+        return null;
+    }
 
+    public void setUrl(String url) {
+        
+    }
     @Override
     public int hashCode() {
         int hash = 0;

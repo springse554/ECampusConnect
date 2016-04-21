@@ -32,6 +32,8 @@ public class Home extends HttpServlet {
         
         student.setStudentId(Integer.parseInt(request.getParameter("id")));
         student.setStudentName(request.getParameter("name"));
+        student.setStudentEmail(request.getParameter("email"));
+        student.setStudentLevel(request.getParameter("level"));
         studentFacade.create(student);
         
         try (PrintWriter out = response.getWriter()) {

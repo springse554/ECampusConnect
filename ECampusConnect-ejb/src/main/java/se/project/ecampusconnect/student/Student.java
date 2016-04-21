@@ -25,6 +25,8 @@ public class Student implements Serializable {
 
     private int studentId;
     private String studentName;
+    private String studentEmail;
+    private String studentLevel;
     
     public Long getId() {
         return id;
@@ -73,6 +75,22 @@ public class Student implements Serializable {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
+    }
+
+    public String getStudentEmail() {
+        return studentEmail;
+    }
+
+    public void setStudentEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
+    }
+
+    public String getStudentLevel() {
+        return studentLevel;
+    }
+
+    public void setStudentLevel(String studentLevel) {
+        this.studentLevel = studentLevel;
     }
     
 }

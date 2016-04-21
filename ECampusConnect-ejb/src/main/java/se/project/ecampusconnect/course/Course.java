@@ -104,6 +104,14 @@ public abstract class Course implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public String getLocation() {
+        return null;
+    }
+    
+    public void setLocation(String location) {
+        
+    }
 
     @Override
     public int hashCode() {
@@ -125,6 +133,7 @@ public abstract class Course implements Serializable {
         return true;
     }
 
+   
     @Override
     public String toString() {
         return "se.project.ecampusconnect.course.Course[ id=" + id + " ]";

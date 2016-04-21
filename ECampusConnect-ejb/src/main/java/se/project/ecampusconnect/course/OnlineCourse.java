@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
  * @author Dhaval
  */
 @Entity
-public class OnlineCourse {
+public class OnlineCourse extends Course {
     @Column(name = "URL")
     @NotNull(message = "URL cannot be null")
     private String url;

@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Page</title>
+        <title>Welcome To E Campus Connect</title>
     </head>
     <body>
         <form action="/InsRecords">

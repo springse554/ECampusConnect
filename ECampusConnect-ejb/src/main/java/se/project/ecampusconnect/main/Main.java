@@ -13,6 +13,7 @@ import se.project.ecampusconnect.course.Course;
 import se.project.ecampusconnect.course.InclassCourse;
 import se.project.ecampusconnect.course.OnlineCourse;
 import se.project.ecampusconnect.professor.Instructor;
+import se.project.ecampusconnect.student.Student;
 
 /**
  *
@@ -59,6 +60,20 @@ public class Main {
         tx.commit();
         
     }
+    
+    public void createStudentRecord(String name, String email, String slevel)
+    {
+        Student student = new Student();
+        student.setName(name);
+        student.setEmail(email);
+        student.setSlevel(slevel);
+        
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(student);
+        tx.commit();
+    }
+    
     public static void main(String[] args) {
         Main main = new Main();
         emf = Persistence.createEntityManagerFactory("ecampusconnectPU");
@@ -66,6 +81,8 @@ public class Main {
         main.createInclassCourse("SE554", "Prof. Ken Yu", 4.0, "LEWIS 01510");
         main.createOnlineCourse("SE554", "Prof. Ken Yu", 4.0, "https://d2l.depaul.edu/");
         main.createInstructor("Prof. Ken Yu", "Software Engineering");
+        main.createStudentRecord("Advait Patel", "AdvaitPatel@DePaul.edu", "Graduate");
+        main.createStudentRecord("Dhaval Joshi", "DhavalJoshi@DePaul.edu", "Graduate");
         em.close();
         emf.close();
     }

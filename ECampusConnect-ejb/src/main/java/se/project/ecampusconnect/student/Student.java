@@ -6,28 +6,40 @@
 package se.project.ecampusconnect.student;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Advait
  */
+
 @Entity
+@Table(name = "Student")
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private int studentId;
-    private String studentName;
-    private String studentEmail;
-    private String studentLevel;
     
+    @Column(name = "Name")
+    @NotNull(message = "Student Name cannot be null.")
+    private String name;
+    
+    @Column(name = "EmailID")
+    @NotNull(message = "Student Email ID cannot be null.")
+    private String email;
+
+    @Column(name = "Level")
+    @NotNull(message = "Student Level cannot be null.")
+    private String slevel;
+
     public Long getId() {
         return id;
     }
@@ -36,61 +48,27 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Student)) {
-            return false;
-        }
-        Student other = (Student) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "se.project.ecampusconnect.student.Student[ id=" + id + " ]";
+    public String getEmail() {
+        return email;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public String getSlevel() {
+        return slevel;
     }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
-
-    public String getStudentEmail() {
-        return studentEmail;
-    }
-
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
-    }
-
-    public String getStudentLevel() {
-        return studentLevel;
-    }
-
-    public void setStudentLevel(String studentLevel) {
-        this.studentLevel = studentLevel;
-    }
-    
+    public void setSlevel(String slevel) {
+        this.slevel = slevel;
+    }  
 }

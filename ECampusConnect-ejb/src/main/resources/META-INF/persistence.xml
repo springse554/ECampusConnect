@@ -7,6 +7,7 @@
     <class>se.project.ecampusconnect.course.OnlineCourse</class>
     <class>se.project.ecampusconnect.professor.Instructor</class>
     <class>se.project.ecampusconnect.student.Student</class>
+    <class>se.project.ecampusconnect.people.Advisor</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>

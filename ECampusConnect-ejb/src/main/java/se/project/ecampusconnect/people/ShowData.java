@@ -28,14 +28,14 @@ public class ShowData
       Faculty ts2=new Faculty(2, "John Doe", "BS Computer Science", "Android");
       
       //Non-Teaching Staff entity
-      Advisor nts1=new Advisor(3, "Mathew", "Accounts");
-      Advisor nts2=new Advisor(4, "Hardson", "Students");
+     // Advisor nts1=new Advisor(3, "Mathew", "Accounts");
+      //Advisor nts2=new Advisor(4, "Hardson", "Students");
 
       //storing all entities
       entitymanager.persist(ts1);
       entitymanager.persist(ts2);
-      entitymanager.persist(nts1);
-      entitymanager.persist(nts2);
+      //entitymanager.persist(nts1);
+      //entitymanager.persist(nts2);
       
       entitymanager.getTransaction().commit();
       

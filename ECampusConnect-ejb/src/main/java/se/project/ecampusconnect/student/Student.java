@@ -39,6 +39,14 @@ public class Student implements Serializable {
     @Column(name = "level")
     @NotNull(message = "Student Level cannot be null.")
     private String slevel;
+    
+    @Column(name = "username")
+    @NotNull(message = "Username cannot be null.")
+    private String username;
+    
+    @Column(name = "password")
+    @NotNull(message = "Password cannot be null.")
+    private String passowrd;
 
     public Long getId() {
         return id;
@@ -71,4 +79,20 @@ public class Student implements Serializable {
     public void setSlevel(String slevel) {
         this.slevel = slevel;
     }  
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassowrd() {
+        return passowrd;
+    }
+
+    public void setPassowrd(String passowrd) {
+        this.passowrd = passowrd;
+    }
 }

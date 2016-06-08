@@ -53,10 +53,13 @@ public class Main {
         tx.commit();
     }
 
-    public void createInstructor(String name, String department) {
+    public void createInstructor(String name, String email, String department, String username, String password) {
         Instructor instructor = new Instructor();
         instructor.setName(name);
+        instructor.setEmail(email);
         instructor.setDepartment(department);
+        instructor.setUsername(username);
+        instructor.setPassword(password);
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -65,11 +68,13 @@ public class Main {
 
     }
 
-    public void createStudentRecord(String name, String email, String slevel) {
+    public void createStudentRecord(String email, String name, String password, String level, String username) {
         Student student = new Student();
         student.setName(name);
         student.setEmail(email);
-        student.setSlevel(slevel);
+        student.setSlevel(level);
+        student.setUsername(username);
+        student.setPassowrd(password);
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -120,11 +125,13 @@ public class Main {
         em = emf.createEntityManager();
         main.createInclassCourse("SE554", "Prof. Ken Yu", 4.0, "LEWIS 01510");
         main.createOnlineCourse("SE554", "Prof. Ken Yu", 4.0, "https://d2l.depaul.edu/");
-        main.createInstructor("Prof. Ken Yu", "Software Engineering");
+
+// creating professor        
+        main.createInstructor("Prof. Ken Yu", "Yu@depaul.edu", "Software Engineering", "ken", "yu");
 
 // creating Student records        
-        main.createStudentRecord("Advait Patel", "AdvaitPatel@DePaul.edu", "Graduate");
-        main.createStudentRecord("Dhaval Joshi", "DhavalJoshi@DePaul.edu", "Graduate");
+        main.createStudentRecord("AdvaitPatel@DePaul.edu", "Advait Patel", "patel", "Graduate", "advait");
+        main.createStudentRecord("Dhaval Joshi", "DhavalJoshi@DePaul.edu", "Graduate","dhaval","joshi");
 
 // creating Admin records
         main.createAdmin("Alex Brown", "alexB@depaul.edu", "Alex200", "imbrown");

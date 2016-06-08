@@ -29,7 +29,7 @@
                         
                     </tr>
                     <tr>
-                        <td><a href="web_service.jsp">View Our Public Web Service</a></td>
+                        <td><a href="create_course">View Our Public Web Service</a></td>
                         
                     </tr>
                 </tbody>

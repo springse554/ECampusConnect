@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.project.ecampusconnect.student;
+package se.project.ecampusconnect.admin;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,32 +12,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+import javax.persistence.EntityListeners;
 /**
  *
  * @author Advait
  */
-
 @Entity
-@Table(name = "student")
-public class Student implements Serializable {
 
+
+@Table(name = "admin")
+public class Admin 
+{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     @Column(name = "name")
-    @NotNull(message = "Student Name cannot be null.")
+    @NotNull(message = "Name cannot be null.")
     private String name;
     
     @Column(name = "emailid")
-    @NotNull(message = "Student Email ID cannot be null.")
+    @NotNull(message = "Email ID cannot be null.")
     private String email;
 
-    @Column(name = "level")
-    @NotNull(message = "Student Level cannot be null.")
-    private String slevel;
+    @Column(name = "username")
+    @NotNull(message = "Username cannot be null.")
+    private String username;
+    
+    @Column(name = "password")
+    @NotNull(message = "Password cannot be null.")
+    private String passowrd;
 
     public Long getId() {
         return id;
@@ -64,11 +68,20 @@ public class Student implements Serializable {
         this.email = email;
     }
 
-    public String getSlevel() {
-        return slevel;
+    public String getUsername() {
+        return username;
     }
 
-    public void setSlevel(String slevel) {
-        this.slevel = slevel;
-    }  
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassowrd() {
+        return passowrd;
+    }
+
+    public void setPassowrd(String passowrd) {
+        this.passowrd = passowrd;
+    }
+    
 }

@@ -27,52 +27,26 @@ public class Instructor implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     @NotNull(message = "Name cannot be null.")
     private String name;
     
-    @Column(name = "Department")
-    @NotNull(message = "Department cannot be null.")
-    private String department;
-
-    /**
-     * Get the value of department
-     *
-     * @return the value of department
-     */
-    public String getDepartment() {
-        return department;
-    }
-
-    /**
-     * Set the value of department
-     *
-     * @param department new value of department
-     */
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-
-    /**
-     * Get the value of name
-     *
-     * @return the value of name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @param name new value of name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Column(name = "email")
+    @NotNull(message = "Email cannot be null.")
+    private String email;
     
+    @Column(name = "department")
+    @NotNull(message = "department cannot be null.")
+    private String department;
+    
+    @Column(name = "username")
+    @NotNull(message = "Username cannot be null.")
+    private String username;
+    
+    @Column(name = "password")
+    @NotNull(message = "Password cannot be null.")
+    private String password;
+
     public Long getId() {
         return id;
     }
@@ -81,29 +55,46 @@ public class Instructor implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Instructor)) {
-            return false;
-        }
-        Instructor other = (Instructor) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "se.project.ecampusconnect.professor.Professor[ id=" + id + " ]";
+    public String getEmail() {
+        return email;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
     
 }

@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1 align="center">Welcome to DePaul University Campus Connect</h1>
-        <form name="login_form" action="Login" method="POST">
+        <form name="login_form" action="Hello" method="POST">
             <table border="1" align="center">
                 <tbody>
                     <tr>

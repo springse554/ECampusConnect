@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.project.ecampusconnect.advisor;
+package se.project.ecampusconnect.records;
 
 /**
  *
  * @author Advait
  */
-public interface AdvisorBeanInterface 
-{
-    public void addAdvisor(String firstName, String lastName, String gender, Integer age);
-   
+import java.util.Date;
+
+public interface Creatable {
+	void setCreatedAt(final Date date);
 }

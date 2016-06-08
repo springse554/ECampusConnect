@@ -12,28 +12,28 @@
         <title>Welcome To E Campus Connect</title>
     </head>
     <body>
-        <form action="/InsRecords">
+        <form action="" method="POST" name="">
             <table border="1">
               
                 <tbody>
                     <tr>
-                        <td>ID</td>
-                        <td><input type="text" name="id" value="" /></td>
+                        <td><a href="student.jsp">Click here for Student</a></td>
+                        
                     </tr>
                     <tr>
-                        <td>Name</td>
-                        <td><input type="text" name="name" value="" /></td>
+                        <td><a href="professor.jsp">Click here for Professor</a></td>
+                        
                     </tr>
                     <tr>
-                        <td>Email</td>
-                        <td><input type="text" name="email" value="" /></td>
+                        <td><a href="admin.jsp">Click here for Admin</a></td>
+                        
                     </tr>
                     <tr>
-                        <td>Level</td>
-                        <td><input type="text" name="level" value="" /></td>
+                        <td><a href="web_service.jsp">View Our Public Web Service</a></td>
+                        
                     </tr>
                 </tbody>
-                <input type="submit" value="Click Here" />
+                <input type="submit" value="Not working" />
             </table>
 
         </form>

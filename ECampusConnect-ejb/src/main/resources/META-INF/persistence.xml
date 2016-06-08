@@ -8,6 +8,7 @@
     <class>se.project.ecampusconnect.professor.Instructor</class>
     <class>se.project.ecampusconnect.student.Student</class>
     <class>se.project.ecampusconnect.people.Advisor</class>
+    <class>se.project.ecampusconnect.admin.Admin</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>

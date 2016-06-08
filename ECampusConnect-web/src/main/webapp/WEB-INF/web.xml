@@ -20,6 +20,18 @@
         <servlet-name>NewProfessor</servlet-name>
         <servlet-class>Servlets.NewProfessor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewStudent</servlet-name>
+        <servlet-class>Servlets.ViewStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProfessor</servlet-name>
+        <servlet-class>Servlets.ViewProfessor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteStudent</servlet-name>
+        <servlet-class>Servlets.DeleteStudent</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>NewProfessor</servlet-name>
         <url-pattern>/NewProfessor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewStudent</servlet-name>
+        <url-pattern>/ViewStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfessor</servlet-name>
+        <url-pattern>/ViewProfessor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStudent</servlet-name>
+        <url-pattern>/DeleteStudent</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

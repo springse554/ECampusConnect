@@ -3,7 +3,21 @@
     Created on : 8 Jun, 2016, 12:19:53 PM
     Author     : Advait
 --%>
-
+<%@ page import ="java.sql.*" %>
+<%
+    String username = request.getParameter("username");    
+    String password = request.getParameter("password");
+    Class.forName("org.apache.derby.jdbc.ClientDriver");
+    Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/SE554DB",
+            "APP", "APP");
+    Statement st = con.createStatement();
+    ResultSet rs;
+    rs = st.executeQuery("select * from Student where username='" + username + "' and password='" + password + "'");
+    if (rs.next()) {
+        
+        response.sendRedirect("student_dashboard.jsp");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +27,7 @@
     </head>
     <body>
         <h1 align="center">Welcome to DePaul University Campus Connect</h1>
-        <form name="login_form" action="Hello" method="POST">
+        <form name="login_form" action="student.jsp" method="POST">
             <table border="1" align="center">
                 <tbody>
                     <tr>
@@ -28,10 +42,7 @@
                         <td colspan="2"><input type="submit" value="Login" name="login" /></td>
                         
                     </tr>
-                    <tr>
-                        <td colspan="2"><a href="new_student.jsp">For new User. Create account</a></td>
-                        
-                    </tr>
+                    
                 </tbody>
             </table>
 

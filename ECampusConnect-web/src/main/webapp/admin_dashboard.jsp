@@ -25,7 +25,7 @@
         preparedStmt2.execute();
         
         String course_id = request.getParameter("course_id");
-        String query3 = "delete from Course where ID = ?";
+        String query3 = "delete from INCLASSCOURSE where ID = ?";
         PreparedStatement preparedStmt3 = con.prepareStatement(query3);
         preparedStmt3.setString(1, course_id);
         preparedStmt3.execute();
@@ -66,7 +66,7 @@
 
         <h2><a href="ViewStudent">View Student Records</a></h2>
         <h2><a href="ViewProfessor">View Professor Records</a></h2>
-        <h2><a href="#">View Courses Records</a></h2>
+        <h2><a href="ViewCourses">View Courses Records</a></h2>
         <h2><a href="ViewEvents">View Event Records</a></h2>
 
         <br><br><br>
@@ -131,14 +131,26 @@
     <br>
     
     <fieldset>
-        <legend>Create a new Course Record</legend>
-        <form name="new_course" class = "course" action="NewCourse" method="POST">
+        <legend>Create a new Online Course Record</legend>
+        <form name="new_course" class = "course" action="NewOnlinceCourse" method="POST">
             Enter Id: <input type="text" name="id"/></br>
-            Enter Name: <input type="text" name="name"/></br>
-            Enter Email: <input type="text" name="email"/></br>
-            Enter Username: <input type="text" name="username"/></br>
-            Enter Password: <input type="password" name="password"/></br>
-            <input type="SUBMIT" value="CREATE NEW COURSE"/>
+            Enter Code: <input type="text" name="code"/></br>
+            Enter Credits: <input type="text" name="credit"/></br>
+            Enter Professor: <input type="text" name="professor"/></br>
+            Enter Course URL: <input type="text" name="url"/></br>
+            <input type="SUBMIT" value="CREATE NEW ONLINE COURSE"/>
+        </form>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Create a new In class Course Record</legend>
+        <form name="new_course" class = "course" action="NewInclassCourse" method="POST">
+            Enter Id: <input type="text" name="id"/></br>
+            Enter Code: <input type="text" name="code"/></br>
+            Enter Credits: <input type="text" name="credit"/></br>
+            Enter Professor: <input type="text" name="professor"/></br>
+            Enter Location: <input type="text" name="location"/></br>
+            <input type="SUBMIT" value="CREATE NEW INCLASS COURSE"/>
         </form>
     </fieldset>
     

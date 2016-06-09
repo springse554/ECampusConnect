@@ -11,8 +11,11 @@ package se.project.ecampusconnect.department;
  */
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 
 @Stateless
+@TransactionManagement(TransactionManagementType.BEAN)
 public class DepartmentService implements DepartmentServiceLocal, DepartmentServiceRemote {
 
     @EJB

@@ -9,7 +9,52 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Public Web Services</title>
+        <script type="text/javascript">
+ function getCities() {
+       var selectOb = document.getElementById("country");
+       var country = selectOb.options[selectOb.selectedIndex].value;
+       if (country == "-1") {
+              alert("Invalid selection");
+              return false;
+       }
+  var xmlHttp;
+  xmlHttp = new XMLHttpRequest();
+  var url = "GetCities.jsp";
+  url += "?country=" + country;
+  xmlHttp.onreadystatechange = function() {
+  if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
+         document.getElementById("cities").innerHTML = xmlHttp.responseText
+   }
+
+  };
+  xmlHttp.open("GET", url, true);
+  xmlHttp.send(null);
+
+ }
+ function getTemp(x) {
+
+             var selectOb = document.getElementById("country");
+             var country = selectOb.options[selectOb.selectedIndex].value;
+             if (country == "-1" || x == "select") {
+             alert("Invalid selection");
+             return false;
+  }
+  var xmlHttp;
+  xmlHttp = new XMLHttpRequest();
+  var url = "GetWeather.jsp";
+  url += "?country=" + country + "&city=" + x;
+  xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
+            document.getElementById("weather").innerHTML = xmlHttp.responseText
+  }
+
+  };
+  xmlHttp.open("GET", url, true);
+  xmlHttp.send(null);
+
+ }
+</script>
     </head>
     <body onload="weatherLoader()">
         <h1><div id="weather">Weather Data</div></h1>
@@ -34,5 +79,20 @@
             }
 
         </script>
+        Country &nbsp;
+ <select onchange="getCities()" id="country">
+  <option value="-1">--select--</option>
+  <option value="India">India</option>
+  <option value="United States">US</option>
+ </select>
+ <br>
+ <br>
+ <div id="cities">
+  Cities &nbsp;&nbsp;&nbsp;&nbsp; <select onChange="getTemp(this)"
+   id="city">
+   <option value="-1">--select--</option>
+  </select>
+ </div>
+ <div id="weather"></div>
     </body>
 </html>

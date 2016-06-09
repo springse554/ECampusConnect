@@ -29,6 +29,12 @@
         PreparedStatement preparedStmt3 = con.prepareStatement(query3);
         preparedStmt3.setString(1, course_id);
         preparedStmt3.execute();
+        
+        String event_id = request.getParameter("event_id");
+        String query4 = "delete from EVENT where ID = ?";
+        PreparedStatement preparedStmt4 = con.prepareStatement(query4);
+        preparedStmt4.setString(1, event_id);
+        preparedStmt4.execute();
 
     } catch (Exception e) {
         out.println("wrong entry" + e);
@@ -61,6 +67,7 @@
         <h2><a href="ViewStudent">View Student Records</a></h2>
         <h2><a href="ViewProfessor">View Professor Records</a></h2>
         <h2><a href="#">View Courses Records</a></h2>
+        <h2><a href="ViewEvents">View Event Records</a></h2>
 
         <br><br><br>
 
@@ -82,6 +89,13 @@
             <legend><h2>Delete Course Records</h2></legend>
             <form name="delete_course" action="admin_dashboard.jsp" method="POST">
                 Enter Course ID: <input type="text" name="course_id" placeholder="Enter here..." required/><br>
+                <input type="SUBMIT" value="DELETE RECORD"/>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend><h2>Delete Events Records</h2></legend>
+            <form name="delete_events" action="admin_dashboard.jsp" method="POST">
+                Enter Event ID: <input type="text" name="event_id" placeholder="Enter here..." required/><br>
                 <input type="SUBMIT" value="DELETE RECORD"/>
             </form>
         </fieldset>
@@ -128,6 +142,17 @@
         </form>
     </fieldset>
     
+    <fieldset>
+        <legend>Create a new Event Record</legend>
+        <form name="new_course" class = "course" action="NewEvent" method="POST">
+            Enter Id: <input    type="text"  name="id"/></br>
+            Enter Name: <input  type="text"  name="name"/></br>
+            Enter Place: <input type="text"  name="place"/></br>
+            Enter Date: <input  type="text"  name="date"/></br>
+            
+            <input type="SUBMIT" value="CREATE NEW EVENT"/>
+        </form>
+    </fieldset>
 
 </body>
 

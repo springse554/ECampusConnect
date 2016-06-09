@@ -2,13 +2,13 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="ecampusconnectPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>se.project.ecampusconnect.course.Course</class>
-    <class>se.project.ecampusconnect.course.InclassCourse</class>
-    <class>se.project.ecampusconnect.course.OnlineCourse</class>
-    <class>se.project.ecampusconnect.professor.Instructor</class>
-    <class>se.project.ecampusconnect.student.Student</class>
-    <class>se.project.ecampusconnect.people.Advisor</class>
-    <class>se.project.ecampusconnect.admin.Admin</class>
+    <class>se.project.sessionbeans.ecampusconnect.professor.Instructor</class>
+    <class>se.project.sessionbeans.ecampusconnect.student.Student</class>
+    <class>se.project.sessionbeans.ecampusconnect.admin.Admin</class>
+    <class>se.project.sessionbeans.ecampusconnect.course.InclassCourse</class>
+    <class>se.project.sessionbeans.ecampusconnect.course.OnlineCourse</class>
+    <class>se.project.sessionbeans.ecampusconnect.course.Course</class>
+    <class>se.project.sessionbeans.ecampusconnect.events.Event</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>

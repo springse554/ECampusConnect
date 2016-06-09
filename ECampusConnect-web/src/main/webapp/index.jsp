@@ -32,6 +32,10 @@
                         <td><a href="create_course.html">View Courses via REST Web Service</a></td>
                         
                     </tr>
+                    <tr>
+                        <td><a href="pub_webservice.jsp">View Our Public Web Service</a></td>
+                        
+                    </tr>
                 </tbody>
                 <input type="submit" value="Not working" />
             </table>

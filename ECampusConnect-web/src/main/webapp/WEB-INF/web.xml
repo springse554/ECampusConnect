@@ -40,6 +40,18 @@
         <servlet-name>ViewEvents</servlet-name>
         <servlet-class>Servlets.ViewEvents</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewOnlinceCourse</servlet-name>
+        <servlet-class>Servlets.NewOnlinceCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewInclassCourse</servlet-name>
+        <servlet-class>Servlets.NewInclassCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewCourses</servlet-name>
+        <servlet-class>Servlets.ViewCourses</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/Home</url-pattern>
@@ -79,6 +91,18 @@
     <servlet-mapping>
         <servlet-name>ViewEvents</servlet-name>
         <url-pattern>/ViewEvents</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewOnlinceCourse</servlet-name>
+        <url-pattern>/NewOnlinceCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewInclassCourse</servlet-name>
+        <url-pattern>/NewInclassCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewCourses</servlet-name>
+        <url-pattern>/ViewCourses</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -20,9 +20,9 @@
                CurrentWeather currentWeather = globalWeatherbd.getWeather(
                request.getParameter("city"),  request.getParameter("country"));
                if (currentWeather != null) {
-               String responseXml = "<table border=\"0\" cellspacing=\"10\" cellpadding=\"10\"> <th> "
+               String responseXml = "<table border=\"0\" cellspacing=\"10\" cellpadding=\"10\"> <th><h2> "
               + request.getParameter("city")
-              + "</th> <tr> <td> Location </td> <td> "
+              + "</h2></th> <tr> <td> Location </td> <td> "
               + currentWeather.getLocation()
               + "</td> </tr>"
               + "<tr> <td> Time </td> <td> "

@@ -46,7 +46,7 @@
   url += "?country=" + country + "&city=" + x;
   xmlHttp.onreadystatechange = function() {
             if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete") {
-            document.getElementById("weather").innerHTML = xmlHttp.responseText
+            document.getElementById("weather2").innerHTML = xmlHttp.responseText
   }
 
   };
@@ -58,6 +58,7 @@
     </head>
     <body onload="weatherLoader()">
         <h1><div id="weather">Weather Data</div></h1>
+        
         <script>
             function weatherLoader() {
                 var xmlhttp = new XMLHttpRequest();
@@ -93,6 +94,6 @@
    <option value="-1">--select--</option>
   </select>
  </div>
- <div id="weather"></div>
+ <div id="weather2"></div>
     </body>
 </html>

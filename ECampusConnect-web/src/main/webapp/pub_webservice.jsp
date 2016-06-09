@@ -62,7 +62,7 @@
  <select onchange="getCities()" id="country">
   <option value="-1">--select--</option>
   <option value="India">India</option>
-  <option value="US">US</option>
+  <option value="United States">US</option>
  </select>
  <br>
  <br>

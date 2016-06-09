@@ -33,7 +33,7 @@
                         
                     </tr>
                     <tr>
-                        <td><a href="pub_webservice.jsp">View Our Public Web Service</a></td>
+                        <td><a href="weather.jsp">View Our Public Web Service</a></td>
                         
                     </tr>
                 </tbody>
@@ -41,6 +41,8 @@
             </table>
 
         </form>
+        
+        
     </body>
 </html>
 

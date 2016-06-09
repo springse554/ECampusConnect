@@ -61,7 +61,8 @@
                 Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/SE554DB",
                         "APP", "APP");
                 Statement statement1 = con.createStatement();
-                resultset1 = statement1.executeQuery("select * from ENROLLMENT WHERE USER_NAME='advait'");
+                resultset1 = statement1.executeQuery(
+                        "select * from ENROLLMENT WHERE USER_NAME = '" +  username + "'");
 
                 
         %>

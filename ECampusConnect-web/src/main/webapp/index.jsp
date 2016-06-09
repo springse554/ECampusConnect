@@ -29,7 +29,7 @@
                         
                     </tr>
                     <tr>
-                        <td><a href="create_course.html">View Our Public Web Service</a></td>
+                        <td><a href="create_course.html">View Courses via REST Web Service</a></td>
                         
                     </tr>
                 </tbody>

@@ -26,27 +26,30 @@
                 Statement statement2 = con.createStatement();
                 resultset2 = statement2.executeQuery("select * from ONLINECOURSE");
         %>
+        
         <h1>Hello Student!</h1>
     <center>
         <h1> Please Select Your Course from here </h1>
     </center>
-    <form align = "left" name="trial" action="student_dashboard.jsp" method="GET">
+    <form align = "left" name="trial" action="add_courses.jsp" method="GET">
         <h2>List of available In Class Courses</h2>
         <select name="inclass_course_id">
             <%  while (resultset1.next()) {%>
             <option size="50"><%= resultset1.getString(2)%></option>
             <% } %>
         </select>
+        Enter Username: <input type="text" name="username" required="required"/>
         <INPUT type="submit" value="ADD"/>
     </form>
 
-    <form align="right" name="online" action="student_dashboard.jsp" method="GET">
+    <form align="right" name="online" action="add_courses.jsp" method="GET">
         <h2>List of available Online Courses</h2>
         <select name="online_course_id">
             <%  while (resultset2.next()) {%>
             <option size="50"><%= resultset2.getString(2)%></option>
             <% } %>
         </select>
+        Enter Username: <input type="text" name="username" required="required"/>
         <INPUT type="submit" value="ADD"/>
     </form>
 

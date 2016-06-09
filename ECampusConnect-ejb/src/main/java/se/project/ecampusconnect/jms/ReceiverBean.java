@@ -14,6 +14,8 @@ import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.ejb.MessageDrivenContext;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -30,6 +32,7 @@ import javax.jms.TextMessage;
             @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")})
 
+@TransactionManagement(TransactionManagementType.BEAN)
 public class ReceiverBean implements MessageListener {
 
     @Resource(mappedName = "jms/ConnectionFactory")

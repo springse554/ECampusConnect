@@ -12,6 +12,8 @@ package se.project.ecampusconnect.services;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
@@ -20,6 +22,7 @@ import javax.persistence.Query;
 
 @Stateless
 @WebService(serviceName = "DePaulDepartmentServices")
+@TransactionManagement(TransactionManagementType.BEAN)
 public class SearchServicesSessionBean implements ServicesSessionBeanRemote {
     
     @PersistenceContext(unitName = "HandbookJSPU")

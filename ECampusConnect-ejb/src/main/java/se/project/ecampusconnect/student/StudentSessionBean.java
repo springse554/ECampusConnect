@@ -6,6 +6,8 @@
 package se.project.ecampusconnect.student;
 
 import javax.ejb.Stateful;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import se.project.ecampusconnect.main.SessionBean;
 
@@ -16,6 +18,7 @@ import se.project.ecampusconnect.main.SessionBean;
  * @author Advait
  */
 @Stateful
+@TransactionManagement(TransactionManagementType.BEAN)
 public class StudentSessionBean extends SessionBean implements StudentSessionBeanInterface
 {
     EntityManager em;

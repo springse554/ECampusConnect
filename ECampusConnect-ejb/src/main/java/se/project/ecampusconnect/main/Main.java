@@ -5,19 +5,17 @@
  */
 package se.project.ecampusconnect.main;
 
-import java.util.Date;
-import static java.util.concurrent.TimeUnit.SECONDS;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import se.project.ecampusconnect.admin.Admin;
 import se.project.ecampusconnect.course.Course;
+import se.project.ecampusconnect.course.Enrollment;
 import se.project.ecampusconnect.course.InclassCourse;
 import se.project.ecampusconnect.course.OnlineCourse;
 import se.project.ecampusconnect.events.Event;
 import se.project.ecampusconnect.professor.Instructor;
-import se.project.ecampusconnect.records.Record;
 import se.project.ecampusconnect.student.Student;
 
 /**
@@ -110,13 +108,35 @@ public class Main {
         tx.commit();
     }
 
+    public void coursesTaken(String user_name, String course_name) {
+        
+        Enrollment enroll = new Enrollment();
+        enroll.setUser_name(user_name);
+        enroll.setCourse_name(course_name);
+        
+
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(enroll);
+        tx.commit();
+    }
     
     public static void main(String[] args) {
         Main main = new Main();
         emf = Persistence.createEntityManagerFactory("ecampusconnectPU");
         em = emf.createEntityManager();
         main.createInclassCourse("SE554", "Prof. Ken Yu", 4.0, "LEWIS 01510");
-        main.createOnlineCourse("SE554", "Prof. Ken Yu", 4.0, "https://d2l.depaul.edu/");
+        main.createInclassCourse("SE452", "Prof. Atef Bader", 4.0, "LEWIS 01511");
+        main.createInclassCourse("SE441", "Prof. Crystopher Jones", 4.0, "LEWIS 01512");
+        main.createInclassCourse("SE491", "Prof. Xioping Jia", 4.0, "LEWIS 01513");
+        main.createInclassCourse("SE591", "Prof. Xioping Jia", 4.0, "LEWIS 01514");
+        
+        main.createOnlineCourse("CSC 421", "Prof. Ivad Kanj", 4.0, "https://d2l.depaul.edu/");
+        main.createOnlineCourse("CSC 435", "Prof. Clerk Elliot", 4.0, "https://d2l.depaul.edu/");
+        main.createOnlineCourse("CSC 447", "Prof. Corin Pitchar", 4.0, "https://d2l.depaul.edu/");
+        main.createOnlineCourse("CSC 555", "Prof. Alex Rasin", 4.0, "https://d2l.depaul.edu/");
+        main.createOnlineCourse("CSC 595", "Prof. Xioping Jia", 4.0, "https://d2l.depaul.edu/");
+        
 
 // creating professor        
         main.createInstructor("Prof. Ken Yu", "Yu@depaul.edu", "Software Engineering", "ken", "yu");
@@ -133,7 +153,26 @@ public class Main {
         main.createEvent("Graduation Ceremony", "DePaul University, Loop Campus", "06-12-2016");
         main.createEvent("Double Deamon", "DePaul University, Lincoln Park", "06-17-2016");
         main.createEvent("Cyber Coders", "Jack Blvd, Chicago", "06-30-2016");
+ 
+// creating Enrollments records
+        main.coursesTaken("advait", "SE 554");
+        main.coursesTaken("advait", "CSC 421");
+        main.coursesTaken("advait", "CSC 435");
+        main.coursesTaken("advait", "CSC 447");
+        main.coursesTaken("advait", "CSC 453");
+        main.coursesTaken("advait", "CSC 555");
+        main.coursesTaken("advait", "CSC 595");
+        main.coursesTaken("advait", "SE 452");
         
+        main.coursesTaken("joshi", "SE 554");
+        main.coursesTaken("joshi", "CSC 421");
+        main.coursesTaken("joshi", "CSC 435");
+        main.coursesTaken("joshi", "CSC 447");
+        main.coursesTaken("joshi", "CSC 453");
+        main.coursesTaken("joshi", "CSC 555");
+        main.coursesTaken("joshi", "CSC 595");
+        main.coursesTaken("joshi", "SE 452");
+
         em.close();
         emf.close();
     }

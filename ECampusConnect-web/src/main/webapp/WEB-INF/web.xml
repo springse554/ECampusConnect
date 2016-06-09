@@ -6,7 +6,31 @@
     </servlet>
     <servlet>
         <servlet-name>Hello</servlet-name>
-        <servlet-class>demo.Hello</servlet-class>
+        <servlet-class>Servlets.Hello</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewAdmin</servlet-name>
+        <servlet-class>Servlets.NewAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewStudent</servlet-name>
+        <servlet-class>Servlets.NewStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewProfessor</servlet-name>
+        <servlet-class>Servlets.NewProfessor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewStudent</servlet-name>
+        <servlet-class>Servlets.ViewStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProfessor</servlet-name>
+        <servlet-class>Servlets.ViewProfessor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteStudent</servlet-name>
+        <servlet-class>Servlets.DeleteStudent</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
@@ -16,22 +40,48 @@
         <servlet-name>Hello</servlet-name>
         <url-pattern>/Hello</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewAdmin</servlet-name>
+        <url-pattern>/NewAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewStudent</servlet-name>
+        <url-pattern>/NewStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewProfessor</servlet-name>
+        <url-pattern>/NewProfessor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewStudent</servlet-name>
+        <url-pattern>/ViewStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfessor</servlet-name>
+        <url-pattern>/ViewProfessor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStudent</servlet-name>
+        <url-pattern>/DeleteStudent</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <servlet>
-        <servlet-name>RESTful Jersey CRUD Service</servlet-name>
-        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>main.java.com.javapapers.webservices.rest.jersey</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RESTful Jersey CRUD Service</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
-    </servlet-mapping>
+    
+    <display-name>RESTful Services CRUD</display-name>
+ <servlet>
+    <servlet-name>RESTful Jersey CRUD Service</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+        <param-name>jersey.config.server.provider.packages</param-name>
+        <param-value>com.javapapers.webservices.rest.jersey</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RESTful Jersey CRUD Service</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
 </web-app>

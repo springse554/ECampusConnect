@@ -5,6 +5,7 @@
  */
 package se.project.ecampusconnect.main;
 
+import java.util.Date;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,6 +15,7 @@ import se.project.ecampusconnect.admin.Admin;
 import se.project.ecampusconnect.course.Course;
 import se.project.ecampusconnect.course.InclassCourse;
 import se.project.ecampusconnect.course.OnlineCourse;
+import se.project.ecampusconnect.events.Event;
 import se.project.ecampusconnect.professor.Instructor;
 import se.project.ecampusconnect.records.Record;
 import se.project.ecampusconnect.student.Student;
@@ -94,30 +96,20 @@ public class Main {
         em.persist(admin);
         tx.commit();
     }
+    
+    public void createEvent(String name, String place, String date) {
+        Event event = new Event();
+        event.setName(name);
+        event.setPlace(place);
+        event.setDate(date);
+        
 
-    public void createAndUpdateArticleExample() {
-	
-	final Record article = new Record();
-	article.setAuthor("Test");
-	article.setTitle("title");
-	
-	System.out.println("Before creation: " + article);
-	em.persist(article);
-	
-	System.out.println("After creation: " + article);
-	
-	try {
-		SECONDS.sleep(2);
-	} catch (InterruptedException ex) {
-		throw new RuntimeException(ex);
-	}
-	
-	article.setAuthor("Test2");
-	em.persist(article);
-	em.flush();
-	
-	System.out.println("After flush: " + article);
-}
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(event);
+        tx.commit();
+    }
+
     
     public static void main(String[] args) {
         Main main = new Main();
@@ -136,6 +128,11 @@ public class Main {
 // creating Admin records
         main.createAdmin("Alex Brown", "alexB@depaul.edu", "Alex200", "imbrown");
         main.createAdmin("Jack Bader", "jackbader@depaul.edu", "jbader", "imbader");
+
+// creating Event records
+        main.createEvent("Graduation Ceremony", "DePaul University, Loop Campus", "06-12-2016");
+        main.createEvent("Double Deamon", "DePaul University, Lincoln Park", "06-17-2016");
+        main.createEvent("Cyber Coders", "Jack Blvd, Chicago", "06-30-2016");
         
         em.close();
         emf.close();
